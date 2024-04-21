@@ -1,0 +1,33 @@
+#content {
+    margin: 0px 25%;
+    text-align: center;
+}
+
+#titleWrap {
+    display: flex;
+}
+
+.title {
+    width: 100%;
+}
+
+#btnMore {
+    flex-grow: 1;
+}
+
+.para.close {
+    max-height: 50px;
+    overflow: hidden;
+    font-size: 25px;
+    padding: 10px 0px;
+}
+
+.para.open {
+    max-height: auto;
+    font-size: 25px;
+}
+
+.btn {
+    font-size: 60px;
+    padding: 0 20px;
+}
