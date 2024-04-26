@@ -27,7 +27,23 @@
     font-size: 25px;
 }
 
-.btn {
+.btn, .delete, .edit {
     font-size: 60px;
     padding: 0 20px;
+}
+
+.edit {
+    background-color: rgb(72, 72, 255);
+}
+
+.edit:hover {
+    background-color: rgb(60, 60, 214);
+}
+
+.delete {
+    background-color: rgb(175, 0, 0);
+}
+
+.delete:hover {
+    background-color: rgb(151, 0, 0);
 }
