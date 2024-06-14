@@ -1,26 +1,21 @@
-var commentList = document.querySelector("#comments");
-commentList.addEventListener("click", function(e){
+const titleWrap = document.getElementById("titleWrap"); //button and title container
+const btnMore = document.getElementById("btnMore"); //button to add more comments
+const comments = document.getElementById("comments"); //comments container
+var commentList = document.querySelector("#comments"); //list of comments
 
-    if (e.target.classList[0] == "btn") {
-        let paraElem = e.target.previousElementSibling;
-        if (paraElem.className == "para close") {
-            paraElem.className = "para open";
-            e.target.textContent = "YES!";
-        }
-        else if (paraElem.className == "para open") {
-            paraElem.className = "para close";
-            e.target.textContent = "ME!";
-        } 
+
+titleWrap.addEventListener("click", function(e) {
+    if (e.target.id == "btnOpen") {
+        let btnOpen = e.target;
+        btnOpen.id = "btnClose";
+        btnOpen.textContent = "CLOSE!";
+    } else if (e.target.id == "btnClose") {
+        let btnClose = e.target;
+        btnClose.id = "btnOpen";
+        btnClose.textContent = "OPEN!";
     }
-    if (e.target.classList[0] == "delete") {
-        let container = e.target.parentElement;
-        commentList.removeChild(container);
-    }
+})
 
-});
-
-const btnMore = document.getElementById("btnMore");
-const comments = document.getElementById("comments");
 btnMore.onclick = function() {
 
     btn = document.getElementsByClassName("btn");
@@ -48,15 +43,6 @@ btnMore.onclick = function() {
     //append button
     container.appendChild(paraBtn);
 
-    //create edit element
-    let editBtn = document.createElement("button");
-    //creat button class name
-    editBtn.className = "edit";
-    //create button text
-    editBtn.textContent = "EDIT!";
-    //append button
-    container.appendChild(editBtn);
-
     //create del element
     let delBtn = document.createElement("button");
     //create del class name
@@ -67,3 +53,28 @@ btnMore.onclick = function() {
     container.appendChild(delBtn);
 
 };
+
+commentList.addEventListener("click", function(e){
+
+    //if the user's click is on a button with class btn
+    if (e.target.classList[0] == "btn") {
+        let paraElem = e.target.previousElementSibling; //paragraph element is one previous to the btn elements
+        if (paraElem.className == "para close") {
+            //if para is closed, then change class name (for css) and text
+            paraElem.className = "para open";
+            e.target.textContent = "YES!";
+        }
+        else if (paraElem.className == "para open") {
+            //if para is open, then change class name (for css) and button text
+            paraElem.className = "para close";
+            e.target.textContent = "ME!";
+        } 
+    }
+
+    //if delete is pressed, then remove the container and contents for the specified comment
+    if (e.target.classList[0] == "delete") {
+        let container = e.target.parentElement;
+        commentList.removeChild(container);
+    }
+
+});

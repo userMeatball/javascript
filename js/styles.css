@@ -1,18 +1,61 @@
+/* ME! AND DEL! buttons not same as origional when MORE added */
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: #6d6d6d;
+}
+
+body, img, ul, li, a {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;   
+}
+
 #content {
-    margin: 0px 25%;
+    position: relative;
+    margin: 0 10%;
+    height: auto;
     text-align: center;
+    padding: 1px 0px; /* this is a must, remove it and it breaks */
+    background-color: #eee;
 }
 
 #titleWrap {
+    position: fixed;
     display: flex;
+    width: 60%;
+    z-index: 1;
+    top: 0px;
+    left: 20%;
+    background-color: #ececec77;
+    padding: 10px 0px;
 }
 
-.title {
+#btnOpen, #btnClose {
+    flex-grow: 1;
+    width: 150px;
+    font-size: 25px;
+}
+
+#titleWrap a, #titleWrap a:visited {
     width: 100%;
+    font-size: 45px;
+    font-weight: bold;
+    color: rgb(147, 147, 252);
+}
+#titleWrap a:hover {
+    color: rgb(114, 114, 197);
 }
 
 #btnMore {
     flex-grow: 1;
+    width: 150px;
+    font-size: 25px;
+}
+
+#comments {
+    margin: 100px;
 }
 
 .para.close {
@@ -27,17 +70,9 @@
     font-size: 25px;
 }
 
-.btn, .delete, .edit {
+.btn, .delete {
     font-size: 60px;
     padding: 0 20px;
-}
-
-.edit {
-    background-color: rgb(72, 72, 255);
-}
-
-.edit:hover {
-    background-color: rgb(60, 60, 214);
 }
 
 .delete {
@@ -46,4 +81,41 @@
 
 .delete:hover {
     background-color: rgb(151, 0, 0);
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    margin: 0 10%;
+    height: 40px;
+    background-color: #eee;
+}
+
+footer ul {
+    white-space: nowrap; /* needed or else footer li will break onto next line */
+}
+
+footer li {
+    width: 17%; /* can be 16% to mitigate white-space above yet result will be the same when viewport is shortend */
+    display: inline-block;
+}
+
+/** GALLERY **/
+
+#imgWrap {
+    margin: 10%;
+    height: 100%;
+    margin: 100px;
+}
+
+#imgWrap li {
+    display: inline-block;
+
+}
+
+#imgWrap img {
+    width: 25%;
+    height: auto;
 }
